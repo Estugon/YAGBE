@@ -1,0 +1,20 @@
+﻿# CMakeList.txt : CMake project for YABGE, include source and define
+# project specific logic here.
+#
+
+# Add source to this project's executable.
+add_executable (YABGE "YABGE.cpp" "YABGE.h")
+
+include(sourcelist.cmake)
+
+target_include_directories(${PROJECT_NAME}
+	PUBLIC
+	"${PROJECT_SOURCE_DIR}/src/include/CPU.h"
+	"${PROJECT_SOURCE_DIR}/src/include/Bus.h"
+)
+
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET YABGE PROPERTY CXX_STANDARD 20)
+endif()
+
+# TODO: Add tests and install targets if needed.
